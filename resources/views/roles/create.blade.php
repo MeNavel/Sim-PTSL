@@ -30,7 +30,6 @@
                                 {{ $value->name }}
                             </li>
                         @endforeach
-                        </li>
                     </ul>
                 </div>
             </div>

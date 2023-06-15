@@ -31,6 +31,18 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+    <!-- Suggest Typehead -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Data Table -->
+    <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 </head>
 
 <body>
@@ -66,7 +78,7 @@
                             </li>
 
                             <li>
-                                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <i class="bi bi-person"></i>
                                     <span>My Profile</span>
                                 </a>
@@ -103,7 +115,15 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-
+                @can('ktp-list')
+                    <li class="nav-item">
+                        <a class="nav-link @if (Route::currentRouteName() != 'pemohon.index') {{ 'collapsed' }} @endif"
+                           href="{{ route('pemohon.index') }}">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Kartu Tanda Penduduk</span>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-heading">Desa</li>
 
                 <li class="nav-item">
@@ -127,20 +147,26 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link @if (Route::currentRouteName() != 'sidorejo.index') {{ 'collapsed' }} @endif" data-bs-target="#tables-nav" href="{{ route('sidorejo.index') }}">
+                        <i class="bi bi-layout-text-window-reverse"></i><span>Sidorejo</span>
+                    </a>
+                </li>
+
                 @role('Admin')
                     <li class="nav-heading">Admin Panel</li>
 
                     <li class="nav-item">
                         <a class="nav-link
                         @if (Route::currentRouteName() == 'users.index') @elseif (Route::currentRouteName() == 'users.create') @else {{ 'collapsed' }} @endif"
-                            data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                            data-bs-target="#akun-nav" data-bs-toggle="collapse" href="#">
                             <i class="bi bi-people"></i><span>Kelola Akun</span><i class="bi bi-chevron-down ms-auto"></i>
                         </a>
                         <ul class="nav-content collapse @if (Route::currentRouteName() == 'users.index' or
                                 Route::currentRouteName() == 'users.create' or
                                 Route::currentRouteName() == 'users.show' or
                                 Route::currentRouteName() == 'users.edit') {{ 'show' }} @endif"
-                            id="tables-nav" data-bs-parent="#sidebar-nav">
+                            id="akun-nav" data-bs-parent="#sidebar-nav">
                             <li>
                                 <a class="@if (Route::currentRouteName() == 'users.index') {{ 'active' }} @endif"
                                     href="{{ route('users.index') }}">
@@ -159,7 +185,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link @if (Route::currentRouteName() == 'roles.index') @elseif (Route::currentRouteName() == 'roles.create') @else {{ 'collapsed' }} @endif"
-                            data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                            data-bs-target="#akses-nav" data-bs-toggle="collapse" href="#">
                             <i class="bi bi-person-check"></i>
                             <span>Hak Akses</span><i class="bi bi-chevron-down ms-auto"></i>
                         </a>
@@ -167,7 +193,7 @@
                                 Route::currentRouteName() == 'roles.create' or
                                 Route::currentRouteName() == 'roles.show' or
                                 Route::currentRouteName() == 'roles.edit') {{ 'show' }} @endif"
-                            id="tables-nav" data-bs-parent="#sidebar-nav">
+                            id="akses-nav" data-bs-parent="#sidebar-nav">
                             <li>
                                 <a class="@if (Route::currentRouteName() == 'roles.index') {{ 'active' }} @endif"
                                     href="{{ route('roles.index') }}">

@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\desa\Sidorejo\SidorejoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ktp\PemohonController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('sidorejo', SidorejoController::class);
+    Route::resource('pemohon', PemohonController::class);
+    Route::get('autocomplete', [PemohonController::class, 'autocompleteSearch'])->name('autocomplete');
+    Route::post('pemohon/destroy/{id}', [PemohonController::class, 'destroy'])->name('destroy');
 });
