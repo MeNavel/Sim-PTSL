@@ -20,6 +20,8 @@
                 </div>
             @endif
 
+            <a href="{{ route('pemohon.create') }}" role="button" class="btn btn-primary mb-2"><i class="bi bi-person-plus me-1"></i> Tambah KTP</a>
+
             <table class="table table-bordered data-table" width="100%">
                 <thead>
                 <tr>
