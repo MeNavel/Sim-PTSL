@@ -15,11 +15,9 @@ class Pemohon extends Model
         'nama',
         'tempat_lahir',
         'tanggal_lahir',
-        'jenis_kelamin',
         'alamat',
         'agama',
         'pekerjaan',
-        'no_hp',
     ];
 
     public function berkas_sidorejos(): BelongsToMany
