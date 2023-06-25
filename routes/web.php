@@ -36,4 +36,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('pemohon', PemohonController::class);
     Route::get('autocomplete', [PemohonController::class, 'autocompleteSearch'])->name('autocomplete');
     Route::post('pemohon/destroy/{id}', [PemohonController::class, 'destroy'])->name('destroy');
+    Route::post('pemohon/cek-ktp', [SidorejoController::class, 'cek_ktp'])->name('cek_ktp');
 });
