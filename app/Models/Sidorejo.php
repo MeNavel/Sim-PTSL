@@ -11,6 +11,7 @@ class Sidorejo extends Model
     use HasFactory;
     protected $table = 'sidorejo';
     protected $guarded = [];
+    public $timestamps = false;
 
     public function pemohons(): BelongsToMany
     {
