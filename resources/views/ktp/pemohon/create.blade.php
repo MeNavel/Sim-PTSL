@@ -54,30 +54,6 @@
                                value="{{ old('tanggal_lahir') }}">
                     </div>
                 </div>
-                <fieldset class="row mb-3">
-                    <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio"
-                                   name="jenis_kelamin" id="jenis_kelamin"
-                                   value="LAKI-LAKI" @if(old('jenis_kelamin') == "LAKI-LAKI")
-                                {{ "checked" }}
-                                @endif>
-                            <label class="form-check-label" for="gridRadios1">
-                                LAKI-LAKI
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin"
-                                   value="PEREMPUAN" @if(old('jenis_kelamin') == "PEREMPUAN")
-                                {{ "checked" }}
-                                @endif>
-                            <label class="form-check-label" for="gridRadios2">
-                                PEREMPUAN
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
                 <div class="row mb-3">
                     <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                     <div class="col-sm-10">
@@ -121,12 +97,6 @@
                     <div class="col-sm-10">
                         <input type="text" id="pekerjaan" name="pekerjaan" class="form-control"
                                value="{{ old('pekerjaan') }}">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="no_hp" class="col-sm-2 col-form-label">Nomor HP</label>
-                    <div class="col-sm-10">
-                        <input type="text" id="no_hp" name="no_hp" class="form-control" value="{{ old('no_hp') }}">
                     </div>
                 </div>
                 <div class="row mb-3">

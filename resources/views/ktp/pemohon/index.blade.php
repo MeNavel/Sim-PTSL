@@ -20,15 +20,18 @@
                 </div>
             @endif
 
-            <a href="{{ route('pemohon.create') }}" role="button" class="btn btn-primary mb-2"><i class="bi bi-person-plus me-1"></i> Tambah KTP</a>
+            @can('ktp-create')
+                <a href="{{ route('pemohon.create') }}" role="button" class="btn btn-primary mb-2"><i
+                        class="bi bi-person-plus me-1"></i> Tambah KTP</a>
+            @endcan
 
             <table class="table table-bordered data-table" width="100%">
                 <thead>
                 <tr>
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">Tempat Lahir</th>
                     <th scope="col">Tanggal Lahir</th>
-                    <th scope="col">Jenis Kelamin</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -59,15 +62,15 @@
                         {
                             orderable: false,
                             width: "10%",
-                            data: 'tanggal_lahir',
-                            name: 'tanggal_lahir',
+                            data: 'tempat_lahir',
+                            name: 'tempat_lahir',
                             className: "dt-head-center dt-body-center",
                         },
                         {
                             orderable: false,
                             width: "10%",
-                            data: 'jenis_kelamin',
-                            name: 'jenis_kelamin',
+                            data: 'tanggal_lahir',
+                            name: 'tanggal_lahir',
                             className: "dt-head-center dt-body-center"
                         },
                         {
@@ -79,7 +82,7 @@
                         {
                             data: 'action',
                             name: 'action',
-                            width: "1%",
+                            width: "6%",
                             orderable: false,
                             searchable: false,
                             className: "dt-head-center dt-body-center"
@@ -87,10 +90,10 @@
                     ],
                 });
 
-                $(document).on('click', '.delete-btn', function() {
+                $(document).on('click', '.delete-btn', function () {
                     var id = $(this).data('id');
                     Swal.fire({
-                        title: 'Yakin Ingin Menghapus NIK '+id+' ?',
+                        title: 'Yakin Ingin Menghapus NIK ' + id + ' ?',
                         text: "Data yang dihapus tidak dapat dikembalikan",
                         icon: 'warning',
                         showCancelButton: true,
@@ -101,13 +104,13 @@
                         if (result.value) {
                             var id = $(this).data('id');
                             $.ajax({
-                                url: "pemohon/destroy/"+id,
+                                url: "pemohon/destroy/" + id,
                                 type: 'post',
                                 data: {
                                     '_token': $('meta[name="csrf-token"]').attr('content'),
                                     'id': id
                                 },
-                                success: function(data) {
+                                success: function (data) {
                                     table.draw();
                                     Swal.fire({
                                         position: 'mid',
@@ -117,7 +120,7 @@
                                         timer: 1000
                                     })
                                 },
-                                error: function() {
+                                error: function () {
                                     Swal.fire(
                                         'Error!',
                                         'Error deleting data',

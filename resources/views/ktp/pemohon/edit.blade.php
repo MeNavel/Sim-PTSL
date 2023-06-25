@@ -27,7 +27,8 @@
                 <div class="row mb-3">
                     <label for="id" class="col-sm-2 col-form-label">NIK</label>
                     <div class="col-sm-10">
-                        <input type="text" id="id" name="id" class="typeahead form-control" value="{{ $data->id }}" readonly>
+                        <input type="text" id="id" name="id" class="typeahead form-control" value="{{ $data->id }}"
+                               readonly>
                         @error('id')
                         <span>
                             <label class="text-danger">{{ $message }}</label>
@@ -45,7 +46,7 @@
                     <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                     <div class="col-sm-10">
                         <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control"
-                               value="{{ $data->tanggal_lahir }}">
+                               value="{{ $data->tempat_lahir }}">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -55,29 +56,6 @@
                                value="{{ $data->tanggal_lahir }}">
                     </div>
                 </div>
-                <fieldset class="row mb-3">
-                    <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin"
-                                   value="LAKI-LAKI" @if($data->jenis_kelamin == "LAKI-LAKI")
-                                {{ "checked" }}
-                                @endif>
-                            <label class="form-check-label" for="gridRadios1">
-                                LAKI-LAKI
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin"
-                                   value="PEREMPUAN" @if($data->jenis_kelamin == "PEREMPUAN")
-                                {{ "checked" }}
-                                @endif>
-                            <label class="form-check-label" for="gridRadios2">
-                                PEREMPUAN
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
                 <div class="row mb-3">
                     <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                     <div class="col-sm-10">
@@ -124,12 +102,6 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="no_hp" class="col-sm-2 col-form-label">Nomor HP</label>
-                    <div class="col-sm-10">
-                        <input type="text" id="no_hp" name="no_hp" class="form-control" value="{{ $data->no_hp }}">
-                    </div>
-                </div>
-                <div class="row mb-3">
                     <label class="col-sm-2">Masukkan Data</label>
                     <div class="col-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -138,6 +110,29 @@
             </form>
         </div>
     </div>
-
-
+    @if($berkas_sidorejo->first())
+        <h5 class="card-title">Kartu Tanda Penduduk terhubung dengan berkas</h5>
+    @endif
+    @if($berkas_sidorejo->first())
+        <div class="card col-2">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Nominatif</th>
+                        <th>Desa</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($berkas_sidorejo as $key => $berkas)
+                        <tr>
+                            <th scope="row"><a href="{{ route('sidorejo.create') }}">{{ $berkas->id }}</a></th>
+                            <td>{{ $berkas->desa }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
 @endsection
