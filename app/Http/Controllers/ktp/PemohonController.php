@@ -21,7 +21,7 @@ class PemohonController extends Controller
     {
         $this->middleware('permission:ktp-list|ktp-create|ktp-edit|ktp-delete', ['only' => ['index','store']]);
         $this->middleware('permission:ktp-create', ['only' => ['create','store']]);
-        $this->middleware('permission:ktp-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:ktp-edit', ['only' => ['update']]);
         $this->middleware('permission:ktp-delete', ['only' => ['destroy']]);
     }
 
@@ -38,7 +38,7 @@ class PemohonController extends Controller
                     return date('d-m-Y', strtotime($data->tanggal_lahir));
                 })
                 ->addColumn('action', function ($row) {
-                    return '<div class="btn-group">
+                    return '<div class="btn-group-sm">
                                 <a class="btn btn-info" href="' . route('pemohon.edit', $row->id) . '" role="button"><i class="bi bi-info-circle"></i></a>
                                 <button class="btn btn-danger delete-btn" data-id="' . $row->id . '"><i class="bi-trash3"></i></button>
                             </div>';
@@ -57,7 +57,8 @@ class PemohonController extends Controller
     public function edit($id): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $data = Pemohon::find($id);
-        return view('ktp.pemohon.edit', compact('data'));
+        $berkas_sidorejo = $data->berkas_sidorejos;
+        return view('ktp.pemohon.edit', compact('data', 'berkas_sidorejo'));
     }
 
     /**
@@ -144,11 +145,9 @@ class PemohonController extends Controller
         $data->nama = $request->nama;
         $data->tempat_lahir = $request->tempat_lahir;
         $data->tanggal_lahir = $request->tanggal_lahir;
-        $data->jenis_kelamin = $request->jenis_kelamin;
         $data->alamat = $request->alamat;
         $data->agama = $request->agama;
         $data->pekerjaan = $request->pekerjaan;
-        $data->no_hp = $request->no_hp;
         $data->save();
         DB::commit();
     }
