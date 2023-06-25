@@ -16,11 +16,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('agama');
             $table->string('pekerjaan');
-            $table->string('no_hp');
             $table->timestamps();
         });
     }
