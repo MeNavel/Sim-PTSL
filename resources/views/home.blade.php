@@ -1,23 +1,113 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{'home'}}">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+    <section class="section dashboard">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Rekapitulasi</h5>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">Desa</th>
+                        <th scope="col">Total Pendaftar</th>
+                        <th scope="col">NIB</th>
+                        <th scope="col">NIB Kosong</th>
+                        <th scope="col">Nomor Berkas</th>
+                        <th scope="col">Nomor Berkas Kosong</th>
+                        <th scope="col">Update Data BPN</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @can('semboro-index')
+                    <tr>
+                        <th scope="row">Semboro</th>
+                        <td>{{ $nib_semboro + $belum_nib_semboro }}</td>
+                        <td>{{ $nib_semboro }}</td>
+                        <td>{{ $belum_nib_semboro }}</td>
+                        <td>{{ $no_berkas_semboro }}</td>
+                        <td>{{ $belum_no_berkas_semboro }}</td>
+                        <td>@can('semboro-edit')<a href="{{ route('showDataBPN', 'Semboro') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    @can('sidomulyo-index')
+                    <tr>
+                        <th scope="row">Sidomulyo</th>
+                        <td>{{ $nib_sidomulyo + $belum_nib_sidomulyo }}</td>
+                        <td>{{ $nib_sidomulyo }}</td>
+                        <td>{{ $belum_nib_sidomulyo }}</td>
+                        <td>{{ $no_berkas_sidomulyo }}</td>
+                        <td>{{ $belum_no_berkas_sidomulyo }}</td>
+                        <td>@can('sidomulyo-edit')<a href="{{ route('showDataBPN', 'Sidomulyo') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    @can('sidorejo-index')
+                    <tr>
+                        <th scope="row">Sidorejo</th>
+                        <td>{{ $nib_sidorejo + $belum_nib_sidorejo }}</td>
+                        <td>{{ $nib_sidorejo }}</td>
+                        <td>{{ $belum_nib_sidorejo }}</td>
+                        <td>{{ $no_berkas_sidorejo }}</td>
+                        <td>{{ $belum_no_berkas_sidorejo }}</td>
+                        <td>@can('sidorejo-edit')<a href="{{ route('showDataBPN', 'Sidorejo') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    @can('pondokjoyo-index')
+                    <tr>
+                        <th scope="row">Pondokjoyo</th>
+                        <td>{{ $nib_pondokjoyo + $belum_nib_pondokjoyo }}</td>
+                        <td>{{ $nib_pondokjoyo }}</td>
+                        <td>{{ $belum_nib_pondokjoyo }}</td>
+                        <td>{{ $no_berkas_pondokjoyo }}</td>
+                        <td>{{ $belum_no_berkas_pondokjoyo }}</td>
+                        <td>@can('pondokjoyo-edit')<a href="{{ route('showDataBPN', 'Pondokjoyo') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    @can('mundurejo-index')
+                    <tr>
+                        <th scope="row">Mundurejo</th>
+                        <td>{{ $nib_mundurejo + $belum_nib_mundurejo }}</td>
+                        <td>{{ $nib_mundurejo }}</td>
+                        <td>{{ $belum_nib_mundurejo }}</td>
+                        <td>{{ $no_berkas_mundurejo }}</td>
+                        <td>{{ $belum_no_berkas_mundurejo }}</td>
+                        <td>@can('mundurejo-edit')<a href="{{ route('showDataBPN', 'Mundurejo') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    @can('sumberagung-index')
+                    <tr>
+                        <th scope="row">Sumberagung</th>
+                        <td>{{ $nib_sumberagung + $belum_nib_sumberagung }}</td>
+                        <td>{{ $nib_sumberagung }}</td>
+                        <td>{{ $belum_nib_sumberagung }}</td>
+                        <td>{{ $no_berkas_sumberagung }}</td>
+                        <td>{{ $belum_no_berkas_sumberagung }}</td>
+                        <td>@can('sumberagung-edit')<a href="{{ route('showDataBPN', 'Sumberagung') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    @can('sidomekar-index')
+                    <tr>
+                        <th scope="row">Sidomekar</th>
+                        <td>{{ $nib_sidomekar + $belum_nib_sidomekar }}</td>
+                        <td>{{ $nib_sidomekar }}</td>
+                        <td>{{ $belum_nib_sidomekar }}</td>
+                        <td>{{ $no_berkas_sidomekar }}</td>
+                        <td>{{ $belum_no_berkas_sidomekar }}</td>
+                        <td>@can('sidomekar-edit')<a href="{{ route('showDataBPN', 'Sidomekar') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Response;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Throwable;
+use Yajra\DataTables\DataTables;
 
 class RoleController extends Controller
 {
@@ -25,17 +27,23 @@ class RoleController extends Controller
          $this->middleware('permission:role-delete', ['only' => ['destroy']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @param Request $request
-     * @return View
-     */
-    public function index(Request $request): View
+    public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        if ($request->ajax()) {
+            $data = Role::select('*');
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<div class="btn-group ">';
+                    $btn = $btn . '<a class="btn btn-info btn-sm" href="' . route('roles.show', $row->id) . '" role="button"><i class="bi bi-info-circle"></i></a>';
+                    $btn = $btn . '<a class="btn btn-primary btn-sm" href="' . route('roles.edit', $row->id) . '" role="button"><i class="bi-pencil-square"></i></a>';
+                    $btn = $btn . '<button class="btn btn-danger delete-btn btn-sm" data-id="' . $row->id . '" data-nama="' . $row->name . '"><i class="bi-trash3"></i></button>';
+                    return $btn . '</div>';
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('roles.index');
     }
 
     /**
@@ -66,7 +74,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permission'));
 
         return redirect()->route('roles.index')
-                        ->with('success','Role created successfully');
+                        ->with('success','Role berhasil dibuat');
     }
     /**
      * Display the specified resource.
@@ -122,18 +130,27 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permission'));
 
         return redirect()->route('roles.index')
-                        ->with('success','Role updated successfully');
+                        ->with('success','Role berhasil diupdate');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id): RedirectResponse
+
+    public function destroy($id)
     {
-        DB::table("roles")->where('id',$id)->delete();
-        return redirect()->route('roles.index')
-                        ->with('success','Role deleted successfully');
+//        DB::table("roles")->where('id',$id)->delete();
+//        return redirect()->route('roles.index')
+//                        ->with('success','Role deleted successfully');
+
+        try {
+            DB::table("roles")->where('id',$id)->delete();
+            return Response::json([
+                'success' => true,
+                'data' => 'Role berhasil dihapus'
+            ]);
+        } catch (Throwable $e) {
+            $error = sprintf('[%s]', json_encode($e->getMessage(), true));
+            return Response::json([
+                'success' => false,
+                'data' => $error
+            ]);
+        }
     }
 }

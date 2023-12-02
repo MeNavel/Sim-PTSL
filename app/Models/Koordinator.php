@@ -18,6 +18,9 @@ class Koordinator extends Model
         'agama',
         'pekerjaan',
         'desa',
+        'dusun',
         'jabatan',
     ];
+
+    public $timestamps = false;
 }

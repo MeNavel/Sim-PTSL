@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="pagetitle">
+        <h1>Formulir Tambah Akun</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Kelola Akun</a></li>
+                <li class="breadcrumb-item active">Tambah Akun</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Tambah Akun</h5>

@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="pagetitle">
+        <h1>Formulir Edit Hak Akses</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">Data Akses</a></li>
+                <li class="breadcrumb-item active">Edit Hak Akses</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Edit Hak Akses</h5>
