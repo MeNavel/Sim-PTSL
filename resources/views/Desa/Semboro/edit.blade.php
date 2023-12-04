@@ -181,8 +181,8 @@
                                     <option value="SEMBORO KIDUL" @selected($data->dusun == "SEMBORO KIDUL")>SEMBORO
                                         KIDUL
                                     </option>
-                                    <option value="SEMBORO KULON" @selected($data->dusun == "SEMBORO KULON")>SEMBORO
-                                        KULON
+                                    <option value="SEMBORO PASAR" @selected($data->dusun == "SEMBORO PASAR")>SEMBORO
+                                        PASAR
                                     </option>
                                 </select>
                             </div>

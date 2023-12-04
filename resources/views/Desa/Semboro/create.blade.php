@@ -176,7 +176,7 @@
                                 <select class="form-select" id="dusun" name="dusun" aria-label="State">
                                     <option value="SEMBORO LOR" selected>SEMBORO LOR</option>
                                     <option value="SEMBORO KIDUL">SEMBORO KIDUL</option>
-                                    <option value="SEMBORO KULON">SEMBORO KULON</option>
+                                    <option value="SEMBORO PASAR">SEMBORO PASAR</option>
                                 </select>
                             </div>
                         </div>

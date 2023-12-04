@@ -6,7 +6,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('pondokjoyo.index') }}">Sidorejo</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('pondokjoyo.index') }}">Pondokjoyo</a></li>
                 <li class="breadcrumb-item active">Tambah Data K1</li>
             </ol>
         </nav>
