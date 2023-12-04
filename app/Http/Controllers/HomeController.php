@@ -12,6 +12,7 @@ use App\Models\Sumberagung;
 use DB;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Redirect;
 use Throwable;
 
 class HomeController extends Controller
