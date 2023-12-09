@@ -101,7 +101,7 @@
                         <div class="row mb-3">
                             <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="nik" id="nik"
+                                <input type="text" class="form-control" name="nik" id="nik"
                                        value="{{ old('nik') }}">
                             </div>
                         </div>
