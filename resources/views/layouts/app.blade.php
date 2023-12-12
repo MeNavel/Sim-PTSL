@@ -151,7 +151,7 @@
                 <li class="nav-item">
                     <a class="nav-link @if (Route::currentRouteName() != 'pondokjoyo.index') {{ 'collapsed' }} @endif"
                        data-bs-target="#tables-nav" href="{{ route('pondokjoyo.index') }}">
-                        <i class="bi bi-layout-text-window-reverse"></i><span>Pondokjoyo</span>
+                        <i class="bi bi-layout-text-window-reverse"></i><span>Pondok Joyo</span>
                     </a>
                 </li>
             @endcan
