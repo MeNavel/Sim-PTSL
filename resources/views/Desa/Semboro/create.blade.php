@@ -181,6 +181,17 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="status_penggunaan" class="col-sm-3 col-form-label">Penggunaan</label>
+                            <div class="col-sm-9">
+                                <select class="form-select" id="status_penggunaan" name="status_penggunaan"
+                                        aria-label="State">
+                                    <option value="PEKARANGAN" selected>PEKARANGAN</option>
+                                    <option value="PEKARANGAN ADA BANGUNANNYA">PEKARANGAN ADA BANGUNANNYA</option>
+                                    <option value="SAWAH">SAWAH</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="no_c" class="col-sm-3 col-form-label">Nomor C</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="no_c" id="no_c"
@@ -201,17 +212,7 @@
                                        value="{{ old('klas') }}">
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="status_penggunaan" class="col-sm-3 col-form-label">Penggunaan</label>
-                            <div class="col-sm-9">
-                                <select class="form-select" id="status_penggunaan" name="status_penggunaan"
-                                        aria-label="State">
-                                    <option value="PEKARANGAN" selected>PEKARANGAN</option>
-                                    <option value="PEKARANGAN ADA BANGUNANNYA">PEKARANGAN ADA BANGUNANNYA</option>
-                                    <option value="SAWAH">SAWAH</option>
-                                </select>
-                            </div>
-                        </div>
+
                         <div class="row mb-3">
                             <label for="luas_permohonan" class="col-sm-3 col-form-label">Luas</label>
                             <div class="col-sm-9">
