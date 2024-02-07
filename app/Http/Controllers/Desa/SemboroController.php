@@ -166,7 +166,7 @@ class SemboroController extends Controller
         ])->first();
         $phpWord = new TemplateProcessor('semboro2024.docx');
 
-        $kades = "ARIFIN";
+        $kades = "ANTONI";
         $awal_nib = "12.34.27.02.";
         $kode_desa = "35.09.161.001";
 
