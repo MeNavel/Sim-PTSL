@@ -40,11 +40,19 @@
                 </thead>
                 <tbody>
 
+                @can('unduh-kramatsukoharjo')
+                <tr>
+                    <th scope="row">Kramat Sukoharjo</th>
+                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'KramatSukoharjo') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'KramatSukoharjo') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                </tr>
+                @endcan
+
                 @can('unduh-semboro')
                 <tr>
                     <th scope="row">Semboro</th>
-                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Semboro') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Semboro') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Semboro') }}">Data Pemohon Untuk Setiap Koordinator <i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Semboro') }}">Data Pemohon Seluruh Desa <i class="bi bi-download"></i></a></td>
                 </tr>
                 @endcan
                 @can('unduh-sidomulyo')

@@ -28,6 +28,17 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @can('kramatsukoharjo-index')
+                    <tr>
+                        <th scope="row">Kramat Sukoharjo</th>
+                        <td>{{ $nib_kramatsukoharjo + $belum_nib_kramatsukoharjo }}</td>
+                        <td>{{ $nib_kramatsukoharjo }}</td>
+                        <td>{{ $belum_nib_kramatsukoharjo }}</td>
+                        <td>{{ $no_berkas_kramatsukoharjo }}</td>
+                        <td>{{ $belum_no_berkas_kramatsukoharjo }}</td>
+                        <td>@can('kramatsukoharjo-edit')<a href="{{ route('showDataBPN', 'KramatSukoharjo') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                    </tr>
+                    @endcan
                     @can('semboro-index')
                     <tr>
                         <th scope="row">Semboro</th>

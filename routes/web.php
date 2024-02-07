@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Desa\KramatSukoharjoController;
 use App\Http\Controllers\Desa\MundurejoController;
 use App\Http\Controllers\Desa\PondokjoyoController;
 use App\Http\Controllers\Desa\SemboroController;
@@ -39,6 +40,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
     Route::resource('koordinator', KoordinatorController::class);
     Route::post('koordinator/dusun', [KoordinatorController::class, 'dusun'])->name('koordinator.dusun');
+
+    //kramatsukoharjo
+    Route::resource('kramatsukoharjo', KramatSukoharjoController::class);
+    Route::post('kramatsukoharjo/cek-ktp', [KramatSukoharjoController::class, 'cek_nominatif'])->name('kramatsukoharjo.cek_nominatif');
+    Route::post('kramatsukoharjo/cek-nib', [KramatSukoharjoController::class, 'cek_nib'])->name('kramatsukoharjo.cek_nib');
+    Route::get('kramatsukoharjo/{id}/berkas', [KramatSukoharjoController::class, 'berkas'])->name('kramatsukoharjo.berkas');
 
     //semboro
     Route::resource('semboro', SemboroController::class);

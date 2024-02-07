@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KramatSukoharjo;
 use App\Models\Mundurejo;
 use App\Models\Pondokjoyo;
 use App\Models\Semboro;
@@ -34,6 +35,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //kramatsukoharjo
+        $nib_kramatsukoharjo = KramatSukoharjo::whereNotNull('nib')->count();
+        $belum_nib_kramatsukoharjo = KramatSukoharjo::whereNull('nib')->count();
+        $no_berkas_kramatsukoharjo = KramatSukoharjo::whereNotNull('no_berkas')->count();
+        $belum_no_berkas_kramatsukoharjo = KramatSukoharjo::whereNull('no_berkas')->count();
+
         //semboro
         $nib_semboro = Semboro::whereNotNull('nib')->count();
         $belum_nib_semboro = Semboro::whereNull('nib')->count();
@@ -76,6 +83,12 @@ class HomeController extends Controller
         $no_berkas_sidomekar = Sidomekar::whereNotNull('no_berkas')->count();
         $belum_no_berkas_sidomekar = Sidomekar::whereNull('no_berkas')->count();
         return view('home', compact([
+            //kramatsukoharjo
+            'nib_kramatsukoharjo',
+            'belum_nib_kramatsukoharjo',
+            'no_berkas_kramatsukoharjo',
+            'belum_no_berkas_kramatsukoharjo',
+
             //semboro
             'nib_semboro',
             'belum_nib_semboro',
