@@ -387,15 +387,21 @@
                                 $('#submit').attr('disabled', false);
                             } else {
                                 $('#cek_id').show().html(
-                                    '<label id="hasil_cek" class="text-danger"></label>'
+                                    '<a id="hasil_cek" href="#"  class="text-danger"></a>'
                                 );
                                 $('#hasil_cek').text("Nominatif digunakan " + result.data);
                                 $('#submit').attr('disabled', true);
+                                document.getElementById("hasil_cek").addEventListener("click", function() {
+                                    var inputValue = $('#id').val();
+                                    var url = "{{ route('semboro.edit', ':semboro') }}";
+                                    url = url.replace(':semboro', inputValue);
+                                    window.open(url, '_blank');
+                                });
                             }
                         }
                     })
                 }
-            });
+            });0000000000123567899999
 
             $('#nib').blur(function () {
                 var nib = $('#nib').val();
