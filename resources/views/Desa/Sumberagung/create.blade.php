@@ -101,7 +101,7 @@
                         <div class="row mb-3">
                             <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="nik" id="nik"
+                                <input type="text" class="form-control" name="nik" id="nik"
                                        value="{{ old('nik') }}">
                             </div>
                         </div>
@@ -182,6 +182,17 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="status_penggunaan" class="col-sm-3 col-form-label">Penggunaan</label>
+                            <div class="col-sm-9">
+                                <select class="form-select" id="status_penggunaan" name="status_penggunaan"
+                                        aria-label="State">
+                                    <option value="PEKARANGAN" selected>PEKARANGAN</option>
+                                    <option value="PEKARANGAN ADA BANGUNANNYA">PEKARANGAN ADA BANGUNANNYA</option>
+                                    <option value="SAWAH">SAWAH</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="no_c" class="col-sm-3 col-form-label">Nomor C</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="no_c" id="no_c"
@@ -202,17 +213,7 @@
                                        value="{{ old('klas') }}">
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="status_penggunaan" class="col-sm-3 col-form-label">Penggunaan</label>
-                            <div class="col-sm-9">
-                                <select class="form-select" id="status_penggunaan" name="status_penggunaan"
-                                        aria-label="State">
-                                    <option value="PEKARANGAN" selected>PEKARANGAN</option>
-                                    <option value="PEKARANGAN ADA BANGUNANNYA">PEKARANGAN ADA BANGUNANNYA</option>
-                                    <option value="SAWAH">SAWAH</option>
-                                </select>
-                            </div>
-                        </div>
+
                         <div class="row mb-3">
                             <label for="luas_permohonan" class="col-sm-3 col-form-label">Luas</label>
                             <div class="col-sm-9">
@@ -387,10 +388,16 @@
                                 $('#submit').attr('disabled', false);
                             } else {
                                 $('#cek_id').show().html(
-                                    '<label id="hasil_cek" class="text-danger"></label>'
+                                    '<a id="hasil_cek" href="#"  class="text-danger"></a>'
                                 );
                                 $('#hasil_cek').text("Nominatif digunakan " + result.data);
                                 $('#submit').attr('disabled', true);
+                                document.getElementById("hasil_cek").addEventListener("click", function() {
+                                    var inputValue = $('#id').val();
+                                    var url = "{{ route('sumberagung.edit', ':sumberagung') }}";
+                                    url = url.replace(':sumberagung', inputValue);
+                                    window.open(url, '_blank');
+                                });
                             }
                         }
                     })
@@ -417,10 +424,17 @@
                                 $('#submit').attr('disabled', false);
                             } else {
                                 $('#cek_nib').show().html(
-                                    '<label id="hasil_nib" class="text-danger"></label>'
+                                    // '<label id="hasil_nib" class="text-danger"></label>'
+                                    '<a id="hasil_nib" href="#"  class="text-danger"></a>'
                                 );
                                 $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
                                 $('#submit').attr('disabled', true);
+                                document.getElementById("hasil_nib").addEventListener("click", function() {
+                                    var inputValue = result.data[0].id;
+                                    var url = "{{ route('sumberagung.edit', ':sumberagung') }}";
+                                    url = url.replace(':sumberagung', inputValue);
+                                    window.open(url, '_blank');
+                                });
                             }
                         }
                     })
