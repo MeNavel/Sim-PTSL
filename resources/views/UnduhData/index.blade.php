@@ -35,7 +35,8 @@
                 <tr>
                     <th scope="col">Desa</th>
                     <th scope="col">File Koordinator</th>
-                    <th scope="col">File BPN</th>
+                    <th scope="col">File BPN Tahun 2023</th>
+                    <th scope="col">File BPN Tahun 2024</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,59 +44,67 @@
                 @can('unduh-kramatsukoharjo')
                 <tr>
                     <th scope="row">Kramat Sukoharjo</th>
-                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'KramatSukoharjo') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'KramatSukoharjo') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'KramatSukoharjo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                    <td></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'KramatSukoharjo') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                 </tr>
                 @endcan
 
                 @can('unduh-semboro')
                 <tr>
                     <th scope="row">Semboro</th>
-                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Semboro') }}">Data Pemohon Untuk Setiap Koordinator <i class="bi bi-download"></i></a></td>
-                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Semboro') }}">Data Pemohon Seluruh Desa <i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Semboro') }}">Data Pemohon <i class="bi bi-download"></i></a></td>
+                    <td></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Semboro') }}">Tahun 2024 <i class="bi bi-download"></i></a></td>
                 </tr>
                 @endcan
                 @can('unduh-sidomulyo')
                     <tr>
                         <th scope="row">Sidomulyo</th>
-                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidomulyo') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomulyo') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidomulyo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomulyo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Sidomulyo') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
                 @can('unduh-sidorejo')
                     <tr>
                         <th scope="row">Sidorejo</th>
-                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidorejo') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidorejo') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidorejo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidorejo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td></td>
                     </tr>
                 @endcan
                 @can('unduh-pondokjoyo')
                     <tr>
                         <th scope="row">Pondokjoyo</th>
-                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Pondokjoyo') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Pondokjoyo') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Pondokjoyo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Pondokjoyo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td></td>
                     </tr>
                 @endcan
                 @can('unduh-mundurejo')
                     <tr>
                         <th scope="row">Mundurejo</th>
-                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Mundurejo') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Mundurejo') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Mundurejo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Mundurejo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Mundurejo') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
                 @can('unduh-sumberagung')
                     <tr>
                         <th scope="row">Sumberagung</th>
-                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sumberagung') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sumberagung') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sumberagung') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sumberagung') }}">Tahun 2022 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Sumberagung') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
 
                 @can('unduh-sidomekar')
                     <tr>
                         <th scope="row">Sidomekar</th>
-                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidomekar') }}">Data Pemohon Untuk Setiap Koordinator &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomekar') }}">Data Pemohon Seluruh Desa &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidomekar') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomekar') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Sidomekar') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
 

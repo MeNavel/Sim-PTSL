@@ -92,6 +92,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::controller(UnduhDataController::class)->group(function () {
         Route::get('/unduh', 'index')->name('unduh.index');
         Route::get('/unduh/{desa}', 'desaLengkap')->name('unduh.desa.lengkap');
+        Route::get('/unduh/2024/{desa}', 'desa2024')->name('unduh.desa.2024');
         Route::get('/unduh/{desa}/perkoordinator', 'desaPerKoordinator')->name('unduh.desa.perkoordinator');
     });
 
