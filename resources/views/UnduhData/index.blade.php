@@ -35,7 +35,7 @@
                 <tr>
                     <th scope="col">Desa</th>
                     <th scope="col">File Koordinator</th>
-                    <th scope="col">File BPN Tahun 2023</th>
+                    <th scope="col">File BPN Desa</th>
                     <th scope="col">File BPN Tahun 2024</th>
                 </tr>
                 </thead>
@@ -45,8 +45,8 @@
                 <tr>
                     <th scope="row">Kramat Sukoharjo</th>
                     <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'KramatSukoharjo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'KramatSukoharjo') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                     <td></td>
-                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'KramatSukoharjo') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                 </tr>
                 @endcan
 
@@ -54,15 +54,15 @@
                 <tr>
                     <th scope="row">Semboro</th>
                     <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Semboro') }}">Data Pemohon <i class="bi bi-download"></i></a></td>
+                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Semboro') }}">Seluruh Tahun <i class="bi bi-download"></i></a></td>
                     <td></td>
-                    <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Semboro') }}">Tahun 2024 <i class="bi bi-download"></i></a></td>
                 </tr>
                 @endcan
                 @can('unduh-sidomulyo')
                     <tr>
                         <th scope="row">Sidomulyo</th>
                         <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidomulyo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomulyo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomulyo') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                         <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Sidomulyo') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
@@ -70,7 +70,7 @@
                     <tr>
                         <th scope="row">Sidorejo</th>
                         <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidorejo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidorejo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidorejo') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                         <td></td>
                     </tr>
                 @endcan
@@ -78,7 +78,7 @@
                     <tr>
                         <th scope="row">Pondokjoyo</th>
                         <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Pondokjoyo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Pondokjoyo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Pondokjoyo') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                         <td></td>
                     </tr>
                 @endcan
@@ -86,7 +86,7 @@
                     <tr>
                         <th scope="row">Mundurejo</th>
                         <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Mundurejo') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Mundurejo') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Mundurejo') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                         <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Mundurejo') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
@@ -94,7 +94,7 @@
                     <tr>
                         <th scope="row">Sumberagung</th>
                         <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sumberagung') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sumberagung') }}">Tahun 2022 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sumberagung') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                         <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Sumberagung') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
@@ -103,7 +103,7 @@
                     <tr>
                         <th scope="row">Sidomekar</th>
                         <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Sidomekar') }}">Data Pemohon &nbsp;<i class="bi bi-download"></i></a></td>
-                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomekar') }}">Tahun 2023 &nbsp;<i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Sidomekar') }}">Seluruh Tahun &nbsp;<i class="bi bi-download"></i></a></td>
                         <td class="text-center"><a href="{{ route('unduh.desa.2024', 'Sidomekar') }}">Tahun 2024 &nbsp;<i class="bi bi-download"></i></a></td>
                     </tr>
                 @endcan
