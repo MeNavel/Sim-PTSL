@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Desa\KramatSukoharjoController;
 use App\Http\Controllers\Desa\MundurejoController;
+use App\Http\Controllers\Desa\PatemonController;
 use App\Http\Controllers\Desa\PondokjoyoController;
 use App\Http\Controllers\Desa\SemboroController;
 use App\Http\Controllers\Desa\SidomekarController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UnduhDataController;
 use App\Http\Controllers\UserController;
+use App\Models\Patemon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +42,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
     Route::resource('koordinator', KoordinatorController::class);
     Route::post('koordinator/dusun', [KoordinatorController::class, 'dusun'])->name('koordinator.dusun');
+
+    //patemon
+    Route::resource('patemon', PatemonController::class);
+    Route::post('patemon/cek-ktp', [PatemonController::class, 'cek_ktp'])->name('patemon.cek_ktp');
+    Route::post('patemon/cek-nib', [PatemonController::class, 'cek_nib'])->name('patemon.cek_nib');
+    Route::get('patemon/{id}/berkas', [PatemonController::class, 'berkas'])->name('patemon.berkas');
 
     //kramatsukoharjo
     Route::resource('kramatsukoharjo', KramatSukoharjoController::class);

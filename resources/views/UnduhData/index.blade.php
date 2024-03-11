@@ -41,6 +41,14 @@
                 </thead>
                 <tbody>
 
+                @can('unduh-patemon')
+                    <tr>
+                        <th scope="row">Patemon</th>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Patemon') }}">Data Pemohon <i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Patemon') }}">Seluruh Tahun <i class="bi bi-download"></i></a></td>
+                        <td></td>
+                    </tr>
+                @endcan
                 @can('unduh-kramatsukoharjo')
                 <tr>
                     <th scope="row">Kramat Sukoharjo</th>
@@ -49,7 +57,6 @@
                     <td></td>
                 </tr>
                 @endcan
-
                 @can('unduh-semboro')
                 <tr>
                     <th scope="row">Semboro</th>
