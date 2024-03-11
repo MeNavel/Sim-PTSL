@@ -164,8 +164,11 @@ class MundurejoController extends Controller
             ['desa', '=', 'MUNDUREJO'],
             ['jabatan', '=', 'SAKSI 2'],
         ])->first();
-
-        $phpWord = new TemplateProcessor('mundurejo2023.docx');
+        if(date('Y', strtotime($data->tanggal_pendataan)) == "2024"){
+            $phpWord = new TemplateProcessor('mundurejo2024.docx');
+        } else {
+            $phpWord = new TemplateProcessor('mundurejo2023.docx');
+        }
 
         $kades = "EDI SANTOSO";
         $awal_nib = "12.34.02.05.";

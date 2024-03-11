@@ -164,7 +164,11 @@ class SidomulyoController extends Controller
             ['desa', '=', 'SIDOMULYO'],
             ['jabatan', '=', 'SAKSI 2'],
         ])->first();
-        $phpWord = new TemplateProcessor('sidomulyo2023.docx');
+        if(date('Y', strtotime($data->tanggal_pendataan)) == "2024"){
+            $phpWord = new TemplateProcessor('sidomulyo2024.docx');
+        } else {
+            $phpWord = new TemplateProcessor('sidomulyo2023.docx');
+        }
 
         $kades = "WASISO";
         $awal_nib = "12.34.27.05.";
