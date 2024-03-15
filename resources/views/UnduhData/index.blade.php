@@ -41,6 +41,14 @@
                 </thead>
                 <tbody>
 
+                @can('unduh-karangsono')
+                    <tr>
+                        <th scope="row">Karangsono</th>
+                        <td class="text-center"><a href="{{ route('unduh.desa.perkoordinator', 'Karangsono') }}">Data Pemohon <i class="bi bi-download"></i></a></td>
+                        <td class="text-center"><a href="{{ route('unduh.desa.lengkap', 'Karangsono') }}">Seluruh Tahun <i class="bi bi-download"></i></a></td>
+                        <td></td>
+                    </tr>
+                @endcan
                 @can('unduh-patemon')
                     <tr>
                         <th scope="row">Patemon</th>

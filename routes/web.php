@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Desa\KarangsonoController;
 use App\Http\Controllers\Desa\KramatSukoharjoController;
 use App\Http\Controllers\Desa\MundurejoController;
 use App\Http\Controllers\Desa\PatemonController;
@@ -42,6 +43,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
     Route::resource('koordinator', KoordinatorController::class);
     Route::post('koordinator/dusun', [KoordinatorController::class, 'dusun'])->name('koordinator.dusun');
+
+    //karangsono
+    Route::resource('karangsono', KarangsonoController::class);
+    Route::post('karangsono/cek-ktp', [KarangsonoController::class, 'cek_ktp'])->name('karangsono.cek_ktp');
+    Route::post('karangsono/cek-nib', [KarangsonoController::class, 'cek_nib'])->name('karangsono.cek_nib');
+    Route::get('karangsono/{id}/berkas', [KarangsonoController::class, 'berkas'])->name('karangsono.berkas');
 
     //patemon
     Route::resource('patemon', PatemonController::class);

@@ -123,6 +123,14 @@
             </li>
 
             <li class="nav-heading">Desa</li>
+            @can('karangsono-index')
+                <li class="nav-item">
+                    <a class="nav-link @if (Route::currentRouteName() != 'karangsono.index') {{ 'collapsed' }} @endif"
+                       data-bs-target="#tables-nav" href="{{ route('karangsono.index') }}">
+                        <i class="bi bi-layout-text-window-reverse"></i><span>Karangsono</span>
+                    </a>
+                </li>
+            @endcan
             @can('patemon-index')
                 <li class="nav-item">
                     <a class="nav-link @if (Route::currentRouteName() != 'patemon.index') {{ 'collapsed' }} @endif"
