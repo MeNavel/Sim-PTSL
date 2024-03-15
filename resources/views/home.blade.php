@@ -28,6 +28,28 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @can('karangsono-index')
+                        <tr>
+                            <th scope="row">Karangsono</th>
+                            <td>{{ $nib_karangsono + $belum_nib_karangsono }}</td>
+                            <td>{{ $nib_karangsono }}</td>
+                            <td>{{ $belum_nib_karangsono }}</td>
+                            <td>{{ $no_berkas_karangsono }}</td>
+                            <td>{{ $belum_no_berkas_karangsono }}</td>
+                            <td>@can('karangsono-edit')<a href="{{ route('showDataBPN', 'Karangsono') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                        </tr>
+                    @endcan
+                    @can('patemon-index')
+                        <tr>
+                            <th scope="row">Patemon</th>
+                            <td>{{ $nib_patemon + $belum_nib_patemon }}</td>
+                            <td>{{ $nib_patemon }}</td>
+                            <td>{{ $belum_nib_patemon }}</td>
+                            <td>{{ $no_berkas_patemon }}</td>
+                            <td>{{ $belum_no_berkas_patemon }}</td>
+                            <td>@can('patemon-edit')<a href="{{ route('showDataBPN', 'Patemon') }}"><i class="bi bi-pencil-square"></i></a>@endcan</td>
+                        </tr>
+                    @endcan
                     @can('kramatsukoharjo-index')
                     <tr>
                         <th scope="row">Kramat Sukoharjo</th>

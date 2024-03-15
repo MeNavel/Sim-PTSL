@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karangsono;
 use App\Models\KramatSukoharjo;
 use App\Models\Mundurejo;
+use App\Models\Patemon;
 use App\Models\Pondokjoyo;
 use App\Models\Semboro;
 use App\Models\Sidomekar;
@@ -35,6 +37,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //Karangsono
+        $nib_karangsono = Karangsono::whereNotNull('nib')->count();
+        $belum_nib_karangsono = Karangsono::whereNull('nib')->count();
+        $no_berkas_karangsono = Karangsono::whereNotNull('no_berkas')->count();
+        $belum_no_berkas_karangsono = Karangsono::whereNull('no_berkas')->count();
+
+        //Patemon
+        $nib_patemon = Patemon::whereNotNull('nib')->count();
+        $belum_nib_patemon = Patemon::whereNull('nib')->count();
+        $no_berkas_patemon = Patemon::whereNotNull('no_berkas')->count();
+        $belum_no_berkas_patemon = Patemon::whereNull('no_berkas')->count();
+
         //kramatsukoharjo
         $nib_kramatsukoharjo = KramatSukoharjo::whereNotNull('nib')->count();
         $belum_nib_kramatsukoharjo = KramatSukoharjo::whereNull('nib')->count();
@@ -83,6 +97,18 @@ class HomeController extends Controller
         $no_berkas_sidomekar = Sidomekar::whereNotNull('no_berkas')->count();
         $belum_no_berkas_sidomekar = Sidomekar::whereNull('no_berkas')->count();
         return view('home', compact([
+            //karangsono
+            'nib_karangsono',
+            'belum_nib_karangsono',
+            'no_berkas_karangsono',
+            'belum_no_berkas_karangsono',
+
+            //patemon
+            'nib_patemon',
+            'belum_nib_patemon',
+            'no_berkas_patemon',
+            'belum_no_berkas_patemon',
+
             //kramatsukoharjo
             'nib_kramatsukoharjo',
             'belum_nib_kramatsukoharjo',
