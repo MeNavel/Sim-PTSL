@@ -165,7 +165,11 @@ class SumberagungController extends Controller
             ['jabatan', '=', 'SAKSI 2'],
         ])->first();
 
-        $phpWord = new TemplateProcessor('sumberagung2023.docx');
+        if(date('Y', strtotime($data->tanggal_pendataan)) == "2024"){
+            $phpWord = new TemplateProcessor('sumberagung2024.docx');
+        } else {
+            $phpWord = new TemplateProcessor('sumberagung2023.docx');
+        }
 
         $kades = "TUGIRAN S.Sos";
         $awal_nib = "12.34.13.10.";
