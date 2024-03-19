@@ -221,6 +221,7 @@ class KarangsonoController extends Controller
         //handle peralihan terakhir
         $bukti_jual_beli = null;
         $bukti_hibah = null;
+        $bukti_waris = null;
         if ($data->dasar_2 != "") {
             if ($data->dasar_3 != "") {
                 if ($data->sebab_3 == "HIBAH") {
@@ -229,12 +230,18 @@ class KarangsonoController extends Controller
                 if ($data->sebab_3 == "JUAL BELI") {
                     $bukti_jual_beli = $data->dasar_3;
                 }
+                if ($data->sebab_3 == "WARIS") {
+                    $bukti_waris = $data->dasar_3;
+                }
             } else {
                 if ($data->sebab_2 == "HIBAH") {
                     $bukti_hibah = $data->dasar_2;
                 }
                 if ($data->sebab_2 == "JUAL BELI") {
                     $bukti_jual_beli = $data->dasar_2;
+                }
+                if ($data->sebab_2 == "WARIS") {
+                    $bukti_waris = $data->dasar_2;
                 }
             }
         }
@@ -294,6 +301,7 @@ class KarangsonoController extends Controller
             'pemberi_waris' => $pemberi_waris,
             'bukti_jual_beli' => $bukti_jual_beli,
             'bukti_hibah' => $bukti_hibah,
+            'bukti_waris' => $bukti_waris,
 
             'kades' => $kades,
 
