@@ -165,7 +165,11 @@ class SidorejoController extends Controller
             ['jabatan', '=', 'SAKSI 2'],
         ])->first();
 
-        $phpWord = new TemplateProcessor('sidorejo2023.docx');
+        if(date('Y', strtotime($data->tanggal_pendataan)) == "2024"){
+            $phpWord = new TemplateProcessor('sidorejo2024.docx');
+        } else {
+            $phpWord = new TemplateProcessor('sidorejo2023.docx');
+        }
 
         $kades = "SETYA KRISTINING ELYNA";
         $awal_nib = "12.34.02.06.";
