@@ -271,7 +271,7 @@
         @endcan
 
         @can('semboro-index')
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Semboro</h5>
@@ -291,12 +291,12 @@
                                     }],
                                     chart: {
                                         type: 'bar',
-                                        height: 900
+                                        height: 500
                                     },
                                     plotOptions: {
                                         bar: {
                                             borderRadius: 4,
-                                            horizontal: true,
+                                            horizontal: false,
                                         }
                                     },
                                     dataLabels: {
