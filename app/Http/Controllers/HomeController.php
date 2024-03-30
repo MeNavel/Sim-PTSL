@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Karangsono;
+use App\Models\Koordinator;
 use App\Models\KramatSukoharjo;
 use App\Models\Mundurejo;
 use App\Models\Patemon;
@@ -37,6 +38,30 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $patemon = DB::table('patemon')
+            ->join('koordinator', 'patemon.nik_saksi_1', '=', 'koordinator.id')
+            ->select(DB::raw('count(*) as jumlah'), 'koordinator.nama as koordinator')
+            ->groupBy('koordinator')
+            ->get();
+
+        $kramatsukoharjo = DB::table('kramatsukoharjo')
+            ->join('koordinator', 'kramatsukoharjo.nik_saksi_1', '=', 'koordinator.id')
+            ->select(DB::raw('count(*) as jumlah'), 'koordinator.nama as koordinator')
+            ->groupBy('koordinator')
+            ->get();
+
+        $semboro = DB::table('semboro')
+            ->join('koordinator', 'semboro.nik_saksi_1', '=', 'koordinator.id')
+            ->select(DB::raw('count(*) as jumlah'), 'koordinator.nama as koordinator')
+            ->groupBy('koordinator')
+            ->get();
+
+        $karangsono = DB::table('karangsono')
+            ->join('koordinator', 'karangsono.nik_saksi_1', '=', 'koordinator.id')
+            ->select(DB::raw('count(*) as jumlah'), 'koordinator.nama as koordinator')
+            ->groupBy('koordinator')
+            ->get();
+
         //Karangsono
         $nib_karangsono = Karangsono::whereNotNull('nib')->count();
         $belum_nib_karangsono = Karangsono::whereNull('nib')->count();
@@ -98,24 +123,28 @@ class HomeController extends Controller
         $belum_no_berkas_sidomekar = Sidomekar::whereNull('no_berkas')->count();
         return view('home', compact([
             //karangsono
+            'karangsono',
             'nib_karangsono',
             'belum_nib_karangsono',
             'no_berkas_karangsono',
             'belum_no_berkas_karangsono',
 
             //patemon
+            'patemon',
             'nib_patemon',
             'belum_nib_patemon',
             'no_berkas_patemon',
             'belum_no_berkas_patemon',
 
             //kramatsukoharjo
+            'kramatsukoharjo',
             'nib_kramatsukoharjo',
             'belum_nib_kramatsukoharjo',
             'no_berkas_kramatsukoharjo',
             'belum_no_berkas_kramatsukoharjo',
 
             //semboro
+            'semboro',
             'nib_semboro',
             'belum_nib_semboro',
             'no_berkas_semboro',
