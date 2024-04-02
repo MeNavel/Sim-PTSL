@@ -173,7 +173,7 @@
 
     <div class="row">
         @can('patemon-index')
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Patemon</h5>
@@ -198,7 +198,7 @@
                                     plotOptions: {
                                         bar: {
                                             borderRadius: 4,
-                                            horizontal: true,
+                                            horizontal: false,
                                         }
                                     },
                                     dataLabels: {
@@ -222,7 +222,7 @@
         @endcan
 
         @can('kramatsukoharjo-index')
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Kramat Sukoharjo</h5>
@@ -247,7 +247,7 @@
                                     plotOptions: {
                                         bar: {
                                             borderRadius: 4,
-                                            horizontal: true,
+                                            horizontal: false,
                                         }
                                     },
                                     dataLabels: {
@@ -320,7 +320,7 @@
         @endcan
 
         @can('karangsono-index')
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Karangsono</h5>
@@ -345,7 +345,7 @@
                                     plotOptions: {
                                         bar: {
                                             borderRadius: 4,
-                                            horizontal: true,
+                                            horizontal: false,
                                         }
                                     },
                                     dataLabels: {

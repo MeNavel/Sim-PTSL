@@ -164,7 +164,7 @@ class MundurejoController extends Controller
             ['desa', '=', 'MUNDUREJO'],
             ['jabatan', '=', 'SAKSI 2'],
         ])->first();
-        if(date('Y', strtotime($data->tanggal_pendataan)) == "2024"){
+        if (date('Y', strtotime($data->tanggal_pendataan)) == "2024") {
             $phpWord = new TemplateProcessor('mundurejo2024.docx');
         } else {
             $phpWord = new TemplateProcessor('mundurejo2023.docx');
@@ -180,7 +180,6 @@ class MundurejoController extends Controller
         } else {
             $tanggal_pendataan = null;
         }
-
         if ($koordinator->tanggal_lahir != "") {
             $tanggal_lahir_saksi_1 = Carbon::createFromFormat('Y-m-d', $koordinator->tanggal_lahir)->format('d-m-Y');
         } else {
