@@ -134,8 +134,12 @@ class UnduhDataController extends Controller
             $sheet->setCellValue('AJ' . $row, $item->dasar_3);
 
             //Penanggung Jawab
-            $koordinator = Koordinator::find($item->nik_saksi_1);
-            $sheet->setCellValue('AK' . $row, $koordinator->nama);
+            if($item->nik_saksi_1 == null){
+                $sheet->setCellValue('AK' . $row, null);
+            } else {
+                $koordinator = Koordinator::find($item->nik_saksi_1);
+                $sheet->setCellValue('AK' . $row, $koordinator->nama);
+            }
             $sheet->setCellValue('AL' . $row, $item->no_hp);
             $sheet->setCellValue('AM' . $row, $Tgl_Pendataan);
             $row++;
@@ -148,6 +152,9 @@ class UnduhDataController extends Controller
         return response()->download(public_path('Nominatif Pendaftaran PTSL Desa ' . $desa . '.xlsx'))->deleteFileAfterSend(true);
     }
 
+    /**
+     * @throws Exception
+     */
     public function desa2024($desa)
     {
         $model_name = '\\App\\Models\\' . $desa;
@@ -262,8 +269,12 @@ class UnduhDataController extends Controller
             $sheet->setCellValue('AJ' . $row, $item->dasar_3);
 
             //Penanggung Jawab
-            $koordinator = Koordinator::find($item->nik_saksi_1);
-            $sheet->setCellValue('AK' . $row, $koordinator->nama);
+            if($item->nik_saksi_1 == null){
+                $sheet->setCellValue('AK' . $row, null);
+            } else {
+                $koordinator = Koordinator::find($item->nik_saksi_1);
+                $sheet->setCellValue('AK' . $row, $koordinator->nama);
+            }
             $sheet->setCellValue('AL' . $row, $item->no_hp);
             $sheet->setCellValue('AM' . $row, $Tgl_Pendataan);
             $row++;
