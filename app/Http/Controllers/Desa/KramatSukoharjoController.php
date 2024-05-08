@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Desa;
 use App\Http\Controllers\Controller;
 use App\Models\Koordinator;
 use App\Models\KramatSukoharjo;
+use App\Models\Pengajuan_Desa;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -58,18 +59,22 @@ class KramatSukoharjoController extends Controller
             ->where('jabatan', '=', 'SAKSI 1')
             ->get();
 
-        return view('Desa.KramatSukoharjo.create', compact('data'));
+        $dusunnya = Pengajuan_Desa::select('dusun')->where('desa', '=', 'KRAMAT SUKOHARJO')->get();
+
+        return view('Desa.KramatSukoharjo.create', compact('data', 'dusunnya'));
     }
 
     public function edit($id)
     {
         $data = KramatSukoharjo::find($id);
 
+        $dusunnya = Pengajuan_Desa::select('dusun')->where('desa', '=', 'KRAMAT SUKOHARJO')->get();
+
         $koordinator = Koordinator::select('id', 'nama')
             ->where('desa', '=', 'KRAMAT SUKOHARJO')
             ->where('jabatan', '=', 'SAKSI 1')
             ->get();
-        return view('Desa.KramatSukoharjo.edit', compact('data', 'koordinator'));
+        return view('Desa.KramatSukoharjo.edit', compact('data', 'koordinator', 'dusunnya'));
     }
 
     /**

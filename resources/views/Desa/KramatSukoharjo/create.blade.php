@@ -174,8 +174,9 @@
                             <label for="dusun" class="col-sm-3 col-form-label">Dusun</label>
                             <div class="col-sm-9">
                                 <select class="form-select" id="dusun" name="dusun" aria-label="State">
-                                    <option value="SUKO TIMUR" selected>SUKO TIMUR</option>
-                                    <option value="SUKO BARAT">SUKO BARAT</option>
+                                    @foreach($dusunnya as $dusun)
+                                        <option value="{{ $dusun->dusun }}"> {{ $dusun->dusun }} </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
