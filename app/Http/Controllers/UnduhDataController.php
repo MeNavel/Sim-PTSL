@@ -134,10 +134,10 @@ class UnduhDataController extends Controller
             $sheet->setCellValue('AJ' . $row, $item->dasar_3);
 
             //Penanggung Jawab
-            if($item->nik_saksi_1 == null){
-                $sheet->setCellValue('AK' . $row, null);
+            $koordinator = Koordinator::find($item->nik_saksi_1);
+            if(is_null($koordinator) == true) {
+                $sheet->setCellValue('AK' . $row, "");
             } else {
-                $koordinator = Koordinator::find($item->nik_saksi_1);
                 $sheet->setCellValue('AK' . $row, $koordinator->nama);
             }
             $sheet->setCellValue('AL' . $row, $item->no_hp);
@@ -269,10 +269,10 @@ class UnduhDataController extends Controller
             $sheet->setCellValue('AJ' . $row, $item->dasar_3);
 
             //Penanggung Jawab
-            if($item->nik_saksi_1 == null){
-                $sheet->setCellValue('AK' . $row, null);
+            $koordinator = Koordinator::find($item->nik_saksi_1);
+            if(is_null($koordinator) == true) {
+                $sheet->setCellValue('AK' . $row, "");
             } else {
-                $koordinator = Koordinator::find($item->nik_saksi_1);
                 $sheet->setCellValue('AK' . $row, $koordinator->nama);
             }
             $sheet->setCellValue('AL' . $row, $item->no_hp);
