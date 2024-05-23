@@ -327,6 +327,7 @@ class UnduhDataController extends Controller
                 $sheet->setCellValue('D' . $row, $nama_koordinator->nama);
                 $row++;
             }
+            $sheet->setCellValue('C' . $row+1, "Total Pendaftar = ".$row-2);
             $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(TRUE);
             $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(TRUE);
             $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(TRUE);
