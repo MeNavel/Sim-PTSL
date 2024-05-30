@@ -112,7 +112,8 @@ Route::group(['middleware' => ['auth']], function() {
     });
 
     Route::controller(HomeController::class)->group(function () {
-        Route::get('/', 'index')->name('home');
+//        Route::get('/', 'index')->name('home');
+        Route::get('/home', 'index')->name('home');
         Route::get('/home/{desa}', 'showDataBPN')->name('showDataBPN');
         Route::post('/home/{desa}/update', 'updateDataBPN')->name('updateDataBPN');
         Route::post('/home/{desa}/cek', 'cekDataBPN')->name('cekDataBPN');
