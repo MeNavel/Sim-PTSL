@@ -166,9 +166,9 @@ class PatemonController extends Controller
         ])->first();
         $phpWord = new TemplateProcessor('patemon2024.docx');
 
-        $kades = "ANTONI";
-        $awal_nib = "12.34.27.02.";
-        $kode_desa = "35.09.161.001";
+        $kades = "ARISMANTO";
+        $awal_nib = "12.34.12.04.";
+        $kode_desa = "35.09.160.007";
 
         //handle tanggal
         if ($data->tanggal_pendataan != "") {
