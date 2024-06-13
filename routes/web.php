@@ -117,6 +117,6 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/home/{desa}', 'showDataBPN')->name('showDataBPN');
         Route::post('/home/{desa}/update', 'updateDataBPN')->name('updateDataBPN');
         Route::post('/home/{desa}/cek', 'cekDataBPN')->name('cekDataBPN');
-        Route::post('/home/{desa}/cek_nib', 'cek_nib')->name('cek_nib');
+        Route::post('/home/{desa}/nib', 'cek_nib')->name('nib');
     });
 });

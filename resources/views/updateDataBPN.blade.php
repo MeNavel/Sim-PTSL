@@ -237,43 +237,42 @@
                     },
                 })
             });
-            {{--$('#nib').blur(function () {--}}
-            {{--    var nib = $('#nib').val();--}}
-            {{--    var _token = $('input[name="_token"]').val();--}}
-            {{--    if (nib === "") {--}}
-            {{--        $('#cek_nib').hide();--}}
-            {{--        $('#submit').attr('disabled', false);--}}
-            {{--    } else {--}}
-            {{--        $.ajax({--}}
-            {{--            url: "{{ route('cek_nib', $desa) }}",--}}
-            {{--            method: "POST",--}}
-            {{--            data: {--}}
-            {{--                nib: nib,--}}
-            {{--                _token: _token--}}
-            {{--            },--}}
-            {{--            success: function (result) {--}}
-            {{--                if (result.success === false) {--}}
-            {{--                    $('#cek_nib').hide();--}}
-            {{--                    $('#submit').attr('disabled', false);--}}
-            {{--                } else {--}}
-            {{--                    $('#cek_nib').show().html(--}}
-            {{--                        '<label id="hasil_nib" class="text-danger"></label>'--}}
-            {{--                    );--}}
+            $('#nib').blur(function () {
+                var nib = $('#nib').val();
+                var _token = $('input[name="_token"]').val();
+                if (nib === "") {
+                    $('#cek_nib').hide();
+                    $('#submit').attr('disabled', false);
+                } else {
+                    $.ajax({
+                        url: "{{ route('nib', $desa) }}",
+                        method: "POST",
+                        data: {
+                            nib: nib,
+                            _token: _token
+                        },
+                        success: function (result) {
+                            if (result.success === false) {
+                                $('#cek_nib').hide();
+                                $('#submit').attr('disabled', false);
+                            } else {
+                                $('#cek_nib').show().html(
+                                    '<label id="hasil_nib" class="text-danger"></label>'
+                                );
 
-            {{--                    if (result.status_nib === false){--}}
-            {{--                        $('#hasil_nib').text("NIB harus 5 digit");--}}
-            {{--                        $('#submit').attr('disabled', true);--}}
-            {{--                    }--}}
-            {{--                    else{--}}
-            {{--                        $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);--}}
-            {{--                        $('#submit').attr('disabled', true);--}}
-            {{--                    }--}}
-            {{--                }--}}
-            {{--            }--}}
-            {{--        })--}}
-            {{--    }--}}
-
-            {{--});--}}
+                                if (result.status_nib === false){
+                                    $('#hasil_nib').text("NIB harus 5 digit");
+                                    $('#submit').attr('disabled', true);
+                                }
+                                else{
+                                    $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
+                                    $('#submit').attr('disabled', true);
+                                }
+                            }
+                        }
+                    })
+                }
+            });
         });
     </script>
 @endsection
