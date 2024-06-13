@@ -242,8 +242,7 @@
                 var _token = $('input[name="_token"]').val();
                 if (nib === "") {
                     $('#cek_nib').hide();
-                    $('#submit').attr('disabled', false);
-                } else {
+                    $('#submit').attr('disabled', false);}
                     $.ajax({
                         url: "{{ route('cekNibBPN', $desanya) }}",
                         method: "POST",
@@ -251,27 +250,26 @@
                             nib: nib,
                             _token: _token
                         },
-                        success: function (data) {
-                            if (data.success === false) {
-                                $('#cek_nib').hide();
-                                $('#submit').attr('disabled', false);
-                            } else {
-                                $('#cek_nib').show().html(
-                                    '<label id="hasil_nib" class="text-danger"></label>'
-                                );
-
-                                if (data.status_nib === false){
-                                    $('#hasil_nib').text("NIB harus 5 digit");
-                                    $('#submit').attr('disabled', true);
-                                }
-                                else{
-                                    $('#hasil_nib').text("NIB digunakan " + data.data[0].nama + " nominatif " + data.data[0].id);
-                                    $('#submit').attr('disabled', true);
-                                }
-                            }
-                        }
+                        // success: function (data) {
+                        //     if (data.success === false) {
+                        //         $('#cek_nib').hide();
+                        //         $('#submit').attr('disabled', false);
+                        //     } else {
+                        //         $('#cek_nib').show().html(
+                        //             '<label id="hasil_nib" class="text-danger"></label>'
+                        //         );
+                        //
+                        //         if (data.status_nib === false){
+                        //             $('#hasil_nib').text("NIB harus 5 digit");
+                        //             $('#submit').attr('disabled', true);
+                        //         }
+                        //         else{
+                        //             $('#hasil_nib').text("NIB digunakan " + data.data[0].nama + " nominatif " + data.data[0].id);
+                        //             $('#submit').attr('disabled', true);
+                        //         }
+                        //     }
+                        // }
                     })
-                }
 
             });
         });
