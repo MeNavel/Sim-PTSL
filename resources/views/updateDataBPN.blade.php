@@ -186,10 +186,10 @@
                 var _token = $('input[name="_token"]').val();
 
                 $.ajax({
-                    url: "{{ route('nib', $desa) }}",
+                    url: "{{ route('cekDataBPN', $desa) }}",
                     method: "POST",
                     data: {
-                        nib: nib,
+                        id: id,
                         _token: _token
                     },
                     success: function (data) {
