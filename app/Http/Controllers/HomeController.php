@@ -197,6 +197,12 @@ class HomeController extends Controller
     {
         $model_name = '\\App\\Models\\' . $desa;
         $model = new $model_name;
+
+        request()->validate([
+            'id' => 'required',
+            'nib' => 'digits:5|nullable'
+        ]);
+
         DB::beginTransaction();
         try {
             $data = $model->find($request->id);
@@ -221,6 +227,27 @@ class HomeController extends Controller
             $notif = "error";
             $message = sprintf('[%s]', json_encode($e->getMessage(), true));
             return redirect()->back()->withInput()->with($notif, $message);
+        }
+    }
+
+    public function cek_nib(Request $request, $desa)
+    {
+        $model_name = '\\App\\Models\\' . $desa;
+        $model = new $model_name;
+        if ($request->get('nib')) {
+            $nib = $request->get('nib');
+
+            if (strlen($nib) !== 5 and !NULL) {
+                return response()->json(array('success' => true, 'status_nib' => false));
+            }
+
+            $data = $model::select('id', 'nama')->where('nib', $nib)->get();
+            if (count($data) > 0) {
+                return response()->json(array('success' => true, 'data' => $data));
+            } else {
+                return response()->json(array('success' => false));
+
+            }
         }
     }
 
