@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle">
-        <h1>Update Data BPN Desa {{ $desa }}</h1>
+        <h1>Update Data BPN Desa {{ $desanya }}</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    <form action="{{ route('updateDataBPN', $desa) }}" method="POST">
+    <form action="{{ route('updateDataBPN', $desanya) }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-lg-4">
@@ -186,7 +186,7 @@
                 var _token = $('input[name="_token"]').val();
 
                 $.ajax({
-                    url: "{{ route('cekDataBPN', $desa) }}",
+                    url: "{{ route('cekDataBPN', $desanya) }}",
                     method: "POST",
                     data: {
                         id: id,
@@ -237,43 +237,43 @@
                     },
                 })
             });
-            $('#nib').blur(function () {
-                var nib = $('#nib').val();
-                var _token = $('input[name="_token"]').val();
-                if (nib === "") {
-                    $('#cek_nib').hide();
-                    $('#submit').attr('disabled', false);
-                } else {
-                    $.ajax({
-                        url: "{{ route('cekNibBPN', $desa) }}",
-                        method: "POST",
-                        data: {
-                            nib: nib,
-                            _token: _token
-                        },
-                        success: function (result) {
-                            if (result.success === false) {
-                                $('#cek_nib').hide();
-                                $('#submit').attr('disabled', false);
-                            } else {
-                                $('#cek_nib').show().html(
-                                    '<label id="hasil_nib" class="text-danger"></label>'
-                                );
+            {{--$('#nib').blur(function () {--}}
+            {{--    var nib = $('#nib').val();--}}
+            {{--    var _token = $('input[name="_token"]').val();--}}
+            {{--    if (nib === "") {--}}
+            {{--        $('#cek_nib').hide();--}}
+            {{--        $('#submit').attr('disabled', false);--}}
+            {{--    } else {--}}
+            {{--        $.ajax({--}}
+            {{--            url: "{{ route('cekNibBPN', $desanya) }}",--}}
+            {{--            method: "POST",--}}
+            {{--            data: {--}}
+            {{--                nib: nib,--}}
+            {{--                _token: _token--}}
+            {{--            },--}}
+            {{--            success: function (result) {--}}
+            {{--                if (result.success === false) {--}}
+            {{--                    $('#cek_nib').hide();--}}
+            {{--                    $('#submit').attr('disabled', false);--}}
+            {{--                } else {--}}
+            {{--                    $('#cek_nib').show().html(--}}
+            {{--                        '<label id="hasil_nib" class="text-danger"></label>'--}}
+            {{--                    );--}}
 
-                                if (result.status_nib === false){
-                                    $('#hasil_nib').text("NIB harus 5 digit");
-                                    $('#submit').attr('disabled', true);
-                                }
-                                else{
-                                    $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
-                                    $('#submit').attr('disabled', true);
-                                }
-                            }
-                        }
-                    })
-                }
+            {{--                    if (result.status_nib === false){--}}
+            {{--                        $('#hasil_nib').text("NIB harus 5 digit");--}}
+            {{--                        $('#submit').attr('disabled', true);--}}
+            {{--                    }--}}
+            {{--                    else{--}}
+            {{--                        $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);--}}
+            {{--                        $('#submit').attr('disabled', true);--}}
+            {{--                    }--}}
+            {{--                }--}}
+            {{--            }--}}
+            {{--        })--}}
+            {{--    }--}}
 
-            });
+            {{--});--}}
         });
     </script>
 @endsection

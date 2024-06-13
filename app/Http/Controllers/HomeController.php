@@ -190,7 +190,8 @@ class HomeController extends Controller
 
     public function showDataBPN($desa)
     {
-        return view('updateDataBPN', compact('desa'));
+        $desanya = $desa;
+        return view('updateDataBPN', compact('desanya'));
     }
 
     public function updateDataBPN(Request $request, $desa)
@@ -199,7 +200,6 @@ class HomeController extends Controller
         $model = new $model_name;
 
         request()->validate([
-            'id' => 'required',
             'nib' => 'digits:5|nullable'
         ]);
 
