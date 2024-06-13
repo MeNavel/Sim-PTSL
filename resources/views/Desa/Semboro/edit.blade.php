@@ -397,19 +397,28 @@
                             _token: _token
                         },
                         success: function (result) {
-                            if (result.success === false) {
-                                $('#cek_nib').hide();
-                                $('#submit').attr('disabled', false);
-                            }
-                            if (result.data[0].id === {{ $data->id }}) {
-                                $('#cek_nib').hide();
-                                $('#submit').attr('disabled', false);
-                            } else {
+                            if (result.status_nib === false){
                                 $('#cek_nib').show().html(
                                     '<label id="hasil_nib" class="text-danger"></label>'
                                 );
-                                $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
+                                $('#hasil_nib').text("NIB harus 5 digit");
                                 $('#submit').attr('disabled', true);
+                            }
+                            else{
+                                if (result.success === false) {
+                                    $('#cek_nib').hide();
+                                    $('#submit').attr('disabled', false);
+                                }
+                                if (result.data[0].id === {{ $data->id }}) {
+                                    $('#cek_nib').hide();
+                                    $('#submit').attr('disabled', false);
+                                } else {
+                                    $('#cek_nib').show().html(
+                                        '<label id="hasil_nib" class="text-danger"></label>'
+                                    );
+                                    $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
+                                    $('#submit').attr('disabled', true);
+                                }
                             }
                         }
                     })

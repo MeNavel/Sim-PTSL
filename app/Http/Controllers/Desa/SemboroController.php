@@ -97,8 +97,10 @@ class SemboroController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'id' => 'required'
+            'id' => 'required',
+            'nib' => 'digits:5|nullable'
         ]);
+
         DB::beginTransaction();
         try {
             Semboro::create($request->all());
@@ -145,6 +147,11 @@ class SemboroController extends Controller
     {
         if ($request->get('nib')) {
             $nib = $request->get('nib');
+
+            if (strlen($nib) !== 5 and !NULL) {
+                return response()->json(array('success' => true, 'status_nib' => false));
+            }
+
             $data = Semboro::select('id', 'nama')->where('nib', $nib)->get();
             if (count($data) > 0) {
                 return response()->json(array('success' => true, 'data' => $data));

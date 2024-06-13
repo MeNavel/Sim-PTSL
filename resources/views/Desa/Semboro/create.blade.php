@@ -425,8 +425,15 @@
                                 $('#cek_nib').show().html(
                                     '<label id="hasil_nib" class="text-danger"></label>'
                                 );
-                                $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
-                                $('#submit').attr('disabled', true);
+
+                                if (result.status_nib === false){
+                                    $('#hasil_nib').text("NIB harus 5 digit");
+                                    $('#submit').attr('disabled', true);
+                                }
+                                else{
+                                    $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
+                                    $('#submit').attr('disabled', true);
+                                }
                             }
                         }
                     })
