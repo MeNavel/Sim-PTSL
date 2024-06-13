@@ -193,7 +193,7 @@
                         _token: _token
                     },
                     success: function (data) {
-                        if (data.success == true) {
+                        if (data.success === true) {
                             $('#nib').val(data.data.nib);
                             $('#luas_ukur').val(data.data.luas_ukur);
                             $('#pbt').val(data.data.pbt);
@@ -251,8 +251,8 @@
                             nib: nib,
                             _token: _token
                         },
-                        success: function (result) {
-                            if (result.success === false) {
+                        success: function (data) {
+                            if (data.success === false) {
                                 $('#cek_nib').hide();
                                 $('#submit').attr('disabled', false);
                             } else {
@@ -260,12 +260,12 @@
                                     '<label id="hasil_nib" class="text-danger"></label>'
                                 );
 
-                                if (result.status_nib === false){
+                                if (data.status_nib === false){
                                     $('#hasil_nib').text("NIB harus 5 digit");
                                     $('#submit').attr('disabled', true);
                                 }
                                 else{
-                                    $('#hasil_nib').text("NIB digunakan " + result.data[0].nama + " nominatif " + result.data[0].id);
+                                    $('#hasil_nib').text("NIB digunakan " + data.data[0].nama + " nominatif " + data.data[0].id);
                                     $('#submit').attr('disabled', true);
                                 }
                             }
