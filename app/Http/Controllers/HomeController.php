@@ -230,27 +230,6 @@ class HomeController extends Controller
         }
     }
 
-    public function cek_nib(Request $request, $desanya)
-    {
-        $model_name = '\\App\\Models\\' . $desanya;
-        $model = new $model_name;
-        if ($request->get('nib')) {
-            $nib = $request->get('nib');
-
-            if (strlen($nib) !== 5 and !NULL) {
-                return response()->json(array('success' => true, 'status_nib' => false));
-            }
-
-            $data = $model::select('id', 'nama')->where('nib', $nib)->get();
-            if (count($data) > 0) {
-                return response()->json(array('success' => true, 'data' => $data));
-            } else {
-                return response()->json(array('success' => false));
-
-            }
-        }
-    }
-
     public function cekDataBPN(Request $request, $desa){
         if ($request->get('id')) {
             $id = $request->get('id');
