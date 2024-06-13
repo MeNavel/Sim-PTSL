@@ -230,9 +230,9 @@ class HomeController extends Controller
         }
     }
 
-    public function cek_nib(Request $request, $desa)
+    public function cek_nib(Request $request, $desanya)
     {
-        $model_name = '\\App\\Models\\' . $desa;
+        $model_name = '\\App\\Models\\' . $desanya;
         $model = new $model_name;
         if ($request->get('nib')) {
             $nib = $request->get('nib');
