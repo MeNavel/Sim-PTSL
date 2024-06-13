@@ -199,25 +199,26 @@ class HomeController extends Controller
         $model_name = '\\App\\Models\\' . $desa;
         $model = new $model_name;
 
-        request()->validate([
-            'nib' => 'digits:5|nullable'
+        $validated = request()->validate([
+            'nib' => 'digits:5|nullable',
+            'luas_ukur' => 'nullable',
+            'pbt' => 'nullable',
+            'no_berkas' => 'nullable',
+            'luas_permohonan' => 'nullable',
+            'beda_luas' => 'nullable',
+            'batas_utara' => 'nullable',
+            'batas_timur' => 'nullable',
+            'batas_selatan' => 'nullable',
+            'batas_barat' => 'nullable',
+        ],
+        [
+            'nib.digits' => 'NIB harus 5 digit',
         ]);
 
         DB::beginTransaction();
         try {
             $data = $model->find($request->id);
-            $data->update([
-                'nib' => $request->nib,
-                'luas_ukur' => $request->luas_ukur,
-                'pbt' => $request->pbt,
-                'no_berkas' => $request->no_berkas,
-                'luas_permohonan' => $request->luas_permohonan,
-                'beda_luas' => $request->beda_luas,
-                'batas_utara' => $request->batas_utara,
-                'batas_timur' => $request->batas_timur,
-                'batas_selatan' => $request->batas_selatan,
-                'batas_barat' => $request->batas_barat,
-            ]);
+            $data->update($validated);
             DB::commit();
             $notif = "success";
             $message = "No Nominatif " . $request->id . " berhasil update";
