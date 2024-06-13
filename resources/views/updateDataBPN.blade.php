@@ -237,6 +237,19 @@
                     },
                 })
             });
+            $('#nib').blur(function () {
+                var nib = $('#nib').val();
+                var _token = $('input[name="_token"]').val();
+
+                $.ajax({
+                    url: "{{ route('nib', $desa) }}",
+                    method: "POST",
+                    data: {
+                        id: nib,
+                        _token: _token
+                    }
+                })
+            });
             {{--$('#nib').blur(function () {--}}
             {{--    var nib = $('#nib').val();--}}
             {{--    var _token = $('input[name="_token"]').val();--}}
