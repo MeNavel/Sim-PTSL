@@ -172,7 +172,7 @@ class KramatSukoharjoController extends Controller
         $phpWord = new TemplateProcessor('kramatsukoharjo2024.docx');
 
         $kades = "DWI SISWANTO";
-        $awal_nib = "12.34.27.02.";
+        $awal_nib = "12.34.12.08.";
         $kode_desa = "35.09.160.014";
 
         //handle tanggal
